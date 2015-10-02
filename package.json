@@ -1,0 +1,26 @@
+{
+    "name": "ooyala-request-api",
+
+    "author": {
+        "name": "Stephen Giles",
+        "company": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "description": "An api handler for Ooyala Backlot API",
+    "version": "0.0.2",
+    "main": "ooyala.js",
+    "dependencies": {
+        "underscore": "~1.8.3",
+        "request": "~2.55",
+        "crypto": "~0.0.3",
+        "moment-timezone": "*"
+
+    },
+    "devDependencies": {
+
+    },
+    "readmeFilename": "README.md"
+}
