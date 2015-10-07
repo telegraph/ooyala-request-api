@@ -67,6 +67,13 @@ module.exports = {
             count = args.count;
         }
 
+        if (args.player_id) {
+            path = '/v2/players/' + args.player_id;
+        }
+        if (args.asset_id) {
+            path = '/v2/assets/' + args.asset_id;
+        }
+
         return new Promise(function(resolve, reject) {
             var complex = false,
                 where_clauses = [],
@@ -126,6 +133,12 @@ module.exports = {
                 }
             });
 
+            // path = '/v2/assets/5qZmgxeDqA11FdzQpKYuQK94ttSi1WiF';
+            // path = '/v2/players/ZTIxYmJjZDM2NWYzZDViZGRiOWJjYzc5';
+            // ../api?asset_id=5qZmgxeDqA11FdzQpKYuQK94ttSi1WiF
+            // ../api?player_id=ZTIxYmJjZDM2NWYzZDViZGRiOWJjYzc5
+
+
             // create signature
             self.stringToTokenize = self.secret_key +
                 method + path +
@@ -141,7 +154,7 @@ module.exports = {
                 .replace(/\=+$/, '').substr(0, 43);
 
 
-            console.log('Ooyala API call', {
+            console.log('Ooyala API call', (args.player_id || args.asset_id) ? path : '', {
                 //  api_key: self.api_key,
                 count: count,
                 expires: expiration,
@@ -165,7 +178,7 @@ module.exports = {
             }, function(err, r, body) {
 
                 if (err) {
-                    console.log(222, err);
+                    console.log(222, err, r);
                     reject(err);
                 }
 
