@@ -14,7 +14,7 @@
     "main": "ooyala.js",
     "dependencies": {
         "underscore": "~1.8.3",
-        "request": "~2.55",
+        "request": "~2.88.2",
         "crypto": "~0.0.3",
         "moment-timezone": "*"
 
